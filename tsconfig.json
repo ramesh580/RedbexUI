@@ -1,0 +1,35 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "files": [
+    "src/app/app.module.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxbuttons.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxwindow.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxribbon.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownbutton.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdockinglayout.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxlistbox.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts",
+  ],
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}

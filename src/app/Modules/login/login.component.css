@@ -1,0 +1,21 @@
+.btn-space {
+    margin-right: 10px;
+}
+
+.modal-dialog2 {
+ 
+    width: 460px;
+    height: 460px;
+  }
+
+.modal-header {
+
+background-color: #337AB7;
+
+padding:16px 16px;
+
+color:#FFF;
+
+border-bottom:2px dashed #337AB7;
+
+}

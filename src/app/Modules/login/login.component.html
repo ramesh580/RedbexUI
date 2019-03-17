@@ -1,0 +1,127 @@
+<!-- 
+<jqxWindow #window [width]="550" [height]="280" style="background-color:lightblue">
+    <div style="background-color: lightsteelblue">
+      Connect to Application Server
+    </div>
+    
+      <form style='overflow: hidden;' #loginForm="ngForm" (ngSubmit)="onSubmit(UserName.value, Password.value)" novalidate>
+        <div class="row">
+          <label for="inputEmail3" class="col-sm-11 col-form-label">Welcome to Redbex, Pleases connect to an Application
+            Server </label>
+        </div>
+  
+        <div class="row">
+          <label for="inputEmail3" class="col-sm-4 col-form-label">User name:</label>
+          <div class="col-sm-8">
+            <input type="text" #UserName class="form-control" id="inputEmail3" placeholder="User name">
+          </div>
+        </div>
+        <div class="row">
+          <label for="inputPassword3" class="col-sm-4 col-form-label">Password:</label>
+          <div class="col-sm-8">
+            <input type="password" #Password class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="row">
+          <label for="inputEmail3" class="col-sm-4 col-form-label">Connection info: </label>
+          <label for="inputEmail3" class="col-sm-8 col-form-label">http://localhost:4200</label>
+        </div>
+        <div class="text-right col-sm-13">
+            <button type="button" class="btn btn-secondary btn-sm btn-space">Submit
+             <a routerLink="/dashboard" routerLinkActive='active'>Login</a> 
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm btn-space">Cancel</button>
+        </div>
+      </form>
+  </jqxWindow> -->
+<button id="openModal" class="btn btn-primary btn-sm" #openModal [hidden]="false" data-toggle="modal"
+  data-target="#login-modal">Login</button>
+
+<!-- <div id="modal1" class="modal modal-dialog" id="login-modal">
+  <div class="modal-content">
+    <h2>Modal Header</h2> 
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin(UserName.value, Password.value)">
+      <div class="form-group">
+          <label for="username">Username </label>
+          <input type="text" formControlName="username" #UserName class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.controls['username'].errors }"
+          />
+          <div *ngIf="submitted && loginForm.controls['username'].errors" class="invalid-feedback">
+              <div>Username is required</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="password">Password </label>
+          <input type="password" formControlName="password" #Password class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors }"
+          />
+          <div *ngIf="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+              <div>Password is required</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary">Login</button>
+  
+      </div>
+  </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green">Login</a>
+  </div>
+</div> -->
+
+
+<div *ngIf="isLoginError" class="red text center">
+  <i class="glyphicon glyphicon-exclamation-sign">
+    Incorrect UserName or Password is required.
+  </i>
+
+</div>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}"
+  style="margin-top: 30vh">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+          Connect to Application Server
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form style='overflow: hidden;' #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="row">
+            <label for="inputEmail3" class="col-sm-11 col-form-label">Welcome to Redbex, Please connect to an
+              Application
+              Server </label>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-4 col-form-label">User name:</label>
+            <div class="col-sm-8">
+              <input type="text" #UserName class="form-control" id="inputEmail3" placeholder="User name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-4 col-form-label">Password:</label>
+            <div class="col-sm-8">
+              <input type="password" #Password class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <div class="row">
+            <label for="inputEmail3" class="col-sm-4 col-form-label">Connection info: </label>
+            <label for="inputEmail3" class="col-sm-8 col-form-label">http://localhost:4200</label>
+          </div>
+          <div class="text-right col-sm-13">
+            <button type="button" class="btn btn-primary btn-sm btn-space"
+              (click)="onLogin(UserName.value, Password.value)">Login
+            </button>
+            <button id="closeModal" type="button" class="btn btn-primary btn-sm btn-space"  data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

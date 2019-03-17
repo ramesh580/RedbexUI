@@ -1,0 +1,86 @@
+.full-height {
+    height: 100vh;
+}
+
+.navbar-brand-center {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.margin {
+  margin-top: 3px;
+}
+
+.nav-height {
+  height: 50px;
+}
+
+.margin-brand {
+  margin-bottom: 3px;
+}
+
+.mar-l {
+  margin-left: 10px;
+}
+
+a {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 1px;
+  vertical-align: middle;
+}
+
+.icon.page_paste {
+  background-position: -364px 0;
+}
+
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px; 
+}
+
+.icon-btn {
+  background-color:dodgerblue; /* Blue background */ 
+  border: grey; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 12px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  margin: 8px;
+}
+
+.jqx-ribbon-item {
+  margin: 0px;
+  background-color: rgb(206, 221, 226);  
+  border-color: gray;
+}
+
+.jqx-ribbon-header{
+  background-color: rgb(197, 122, 122); 
+}
+
+.jqx-ribbon-content{
+  background-color: rgb(206, 221, 226); 
+}
+
+.jqx-ribbon-content-section {
+  background-color:  rgb(206, 221, 226);
+}
+
+.jqx-ribbon-item-hover{
+  border-color: lightskyblue;
+  background-color: lightblue;
+
+}
+
+.fa-user-size {
+size: 22px;
+}
