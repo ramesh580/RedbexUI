@@ -9,6 +9,7 @@ import { jqxDropDownButtonComponent } from 'node_modules/jqwidgets-scripts/jqwid
 import { jqxDockingLayoutComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdockinglayout';
 import { jqxListBoxComponent } from 'node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxlistbox';
 import { jqxGridComponent } from 'node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
+import { UsersViewComponent } from './ContentAndStructure/users-view/users-view.component';
 
 @Component({
     selector: 'app-dashboard',
@@ -20,6 +21,11 @@ import { jqxGridComponent } from 'node_modules/jqwidgets-scripts/jqwidgets-ts/an
 export class DashboardComponent implements OnInit {
 
     users: Observable<UserModel>;
+    arrlayout = [];
+
+    reportClosed = true;
+
+
     @ViewChild('jqxRibbon') ribbon: jqxRibbonComponent;
     @ViewChild('fileItemButton') fileItemButton: jqxDropDownButtonComponent;
     @ViewChild('myDockingLayout') myDockingLayout: jqxDockingLayoutComponent;
@@ -99,8 +105,7 @@ export class DashboardComponent implements OnInit {
        this.arrlayout = this.generateLayout();
 
     }
-
-    arrlayout = [];
+ 
 
     getWidth(): any {
         if (document.body.offsetWidth < 2000) {
@@ -175,6 +180,7 @@ export class DashboardComponent implements OnInit {
     }
 
     loadDynamicTab(container, title) {
+        alert("Load dynamic window");
         var savelay = this.myDockingLayout.saveLayout();
         var pushindex = savelay[0].items.findIndex(c => c.type == 'layoutGroup');
         //For First Tab
@@ -246,6 +252,34 @@ export class DashboardComponent implements OnInit {
         };
     }
 
+     //To load user compnent inside dashboard
+     @ViewChild(UsersViewComponent) userComponent;
+     loadUserWindow() {
+         alert("Load user window");
+         var userwindow = this.userComponent.userWindow();
+         var savelay = this.myDockingLayout.saveLayout();
+         savelay[0].items.push(userwindow);
+         this.myDockingLayout.loadLayout(savelay);
+     }
+ 
+     loadReport() {
+         this.reportClosed = false;
+         var window = {
+             type: 'floatGroup',
+             width: 300,
+             height: 300,
+             position: { x: 500, y: 150 },
+             items: [{
+                 type: 'layoutPanel',
+                 title: 'Report',
+                 contentContainer: 'report'
+             }]
+         };
+         var savelay = this.myDockingLayout.saveLayout();
+         savelay[0].items.push(window);
+         this.myDockingLayout.loadLayout(savelay);
+     }
+ 
 
     generateLayout() {
         var layout = [
@@ -266,5 +300,14 @@ export class DashboardComponent implements OnInit {
             }
         ];
         return layout;
+    }
+
+    floatGroupClosed(event) {
+        if (event && event.args && event.args.floatGroup && event.args.floatGroup.items && event.args.floatGroup.items.length >= 0) {
+            var reportIndex = event.args.floatGroup.items.findIndex(c => c.title == 'Report');
+            if (reportIndex >= 0) {
+                this.reportClosed = true;
+            }
+        }
     }
 }

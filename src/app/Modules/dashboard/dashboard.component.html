@@ -24,8 +24,12 @@
                 <table>
                     <tr>
                         <td>
+<!--                                  
+                                        <a class="mar-l" (click)="loadUserWindow()">User window</a> -->
+                                    
                             <jqxButton class="icon-btn" #pasteButton
-                                (onClick)="loadDynamicWindow('Window1','User & User Groups')" [width]="100"
+                            (onClick)="loadUserWindow()"
+                                 [width]="100"
                                 [height]="75" [theme]="'demoTheme'">
                                 <i class="fa fa-user"></i> User & User Groups
                             </jqxButton>
@@ -84,6 +88,7 @@
 
     <div class="row container-fluid full-width">
         <jqxDockingLayout #myDockingLayout [width]="getWidth()" [height]='900' [layout]='arrlayout' [resizable]='false'
+        (onFloatGroupClosed)="floatGroupClosed($event)"
             [auto-create]='true'>
             <div data-container="MapView">
                 <app-map-view></app-map-view>
@@ -93,7 +98,8 @@
                 <app-report-view></app-report-view>
             </div>
 
-            <div data-container="Window1">
+            <app-users-view></app-users-view>
+            <!-- <div data-container="Window1">
                 <app-users-view></app-users-view>
                 
                 <div data-container="DetailItemAssignmentsPanel">
@@ -104,7 +110,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
             <div data-container="Window2">
                 <app-feature-explorer-view></app-feature-explorer-view>
